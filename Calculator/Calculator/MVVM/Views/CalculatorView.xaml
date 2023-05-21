@@ -5,17 +5,17 @@
     x:Class="Calculator.MVVM.Views.CalculatorView"
     Padding="{OnPlatform iOS='0,20,0,0'}"
     Title="Calculator View">
-    
+
     <Grid Padding="5,0"
           ColumnSpacing="1"
           RowSpacing="1">
         <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -24,180 +24,242 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-                
+
         <Label
-            x:Name="result"
+            Text="{Binding Operation}"
+            Grid.Row="0"
             Grid.ColumnSpan="4"
             BackgroundColor="White"
             FontAttributes="Bold"
             HorizontalTextAlignment="End"
             LineBreakMode="NoWrap"
-            Text="0"
-            TextColor="Orange"
+            FontSize="56"
+            TextColor="BlueViolet"
             VerticalTextAlignment="Center"/>
+
 
         <Button 
               Grid.Row="1" 
-              Grid.ColumnSpan="2" 
-              Clicked="OnClear"
-              BackgroundColor="LightGrey"
+              Grid.Column="0"
+              BackgroundColor="BlueViolet"
               CornerRadius="0"
               FontSize="36"
               Text="C"
-              TextColor="DarkGray"/>
+              TextColor="White"
+              Command="{Binding ClearCommand}"
+              />
+
+
+        <Button 
+              Grid.Row="1" 
+              Grid.Column="1"
+              BackgroundColor="BlueViolet"
+              CornerRadius="0"
+              FontSize="46"
+              Text="→­­"
+              Command="{Binding BackspaceCommand}"
+              TextColor="White"/>
+
 
         <Button 
               Grid.Row="1" 
               Grid.Column="2" 
-              Clicked="OnDivide"
-              BackgroundColor="LightGrey"
+              BackgroundColor="BlueViolet"
+              TextColor="White"
               CornerRadius="0"
               FontSize="36"
-              Text="/"
-              TextColor="DarkGray"/>
+              Text="%"
+              Command ="{Binding PercentageCommand}"
+              CommandParameter = "%"/>
+
 
         <Button 
               Grid.Row="2" 
               Grid.Column="0" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="7"
+              CommandParameter = "7"
               TextColor="DarkGray"/>
+
         <Button 
               Grid.Row="2" 
               Grid.Column="1" 
-              Clicked="OnNumberSelection"
               BackgroundColor="white"
+              Command = "{Binding Insert_digitCommand} "
               CornerRadius="0"
               FontSize="36"
               Text="8"
+              CommandParameter = "8"
               TextColor="DarkGray"/>
+
         <Button 
               Grid.Row="2" 
               Grid.Column="2" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="9"
+              CommandParameter = "9"
               TextColor="DarkGray"/>
+
 
         <Button 
               Grid.Row="3" 
               Grid.Column="0" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="4"
+              CommandParameter = "4" 
               TextColor="DarkGray"/>
+
         <Button 
               Grid.Row="3" 
               Grid.Column="1" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "   
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="5"
+              CommandParameter = "5"
               TextColor="DarkGray"/>
+
         <Button 
               Grid.Row="3" 
               Grid.Column="2" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "  
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="6"
+              CommandParameter = "6"
               TextColor="DarkGray"/>
+
 
         <Button 
               Grid.Row="4" 
               Grid.Column="0" 
-              Clicked="OnNumberSelection"
+             Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="1"
+              CommandParameter = "1"
               TextColor="DarkGray"/>
+
         <Button 
               Grid.Row="4" 
               Grid.Column="1" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="2"
+              CommandParameter = "2"
               TextColor="DarkGray"/>
+
         <Button 
               Grid.Row="4" 
               Grid.Column="2" 
-              Clicked="OnNumberSelection"
+              Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="3"
+              CommandParameter = "3"
               TextColor="DarkGray"/>
+
 
         <Button 
               Grid.Row="5" 
               Grid.Column="0"
-              Grid.ColumnSpan="3"
-              Clicked="OnNumberSelection"
+              Grid.ColumnSpan="2"
+              Command = "{Binding Insert_digitCommand} "
               BackgroundColor="white"
               CornerRadius="0"
               FontSize="36"
               Text="0"
+              CommandParameter = "0"
               TextColor="DarkGray"/>
+
+
+        <Button 
+              Grid.Row="5" 
+              Grid.Column="2"
+              Command = "{Binding Insert_digitCommand} "
+              BackgroundColor="white"
+              CornerRadius="0"
+              FontSize="36"
+              Text="."
+              CommandParameter = "."
+              TextColor="DarkGray"/>
+
 
         <Button 
               Grid.Row="1" 
               Grid.Column="3" 
-              Clicked="OnNumberSelection"
               BackgroundColor="BlueViolet"
               CornerRadius="0"
               FontSize="36"
-              Text="X"
-              TextColor="White"/>
+              Text="/"
+              TextColor="White"
+              Command = "{Binding OperatorCommand} "
+              CommandParameter = "/"/>
+
 
         <Button 
               Grid.Row="2" 
               Grid.Column="3" 
-              Clicked="OnNumberSelection"
+              BackgroundColor="BlueViolet"
+              CornerRadius="0"
+              FontSize="36"
+              Text="*"
+              TextColor="White"
+              Command = "{Binding OperatorCommand} "
+              CommandParameter = "*"/>
+
+
+        <Button 
+              Grid.Row="3" 
+              Grid.Column="3" 
               BackgroundColor="BlueViolet"
               CornerRadius="0"
               FontSize="36"
               Text="-"
-              TextColor="White"/>
+              TextColor="White"
+              Command = "{Binding OperatorCommand} "
+              CommandParameter = "-"/>
+
 
         <Button 
-              Grid.Row="3" 
+              Grid.Row="4" 
               Grid.Column="3" 
-              Clicked="OnNumberSelection"
               BackgroundColor="BlueViolet"
               CornerRadius="0"
               FontSize="36"
               Text="+"
-              TextColor="White"/>
+              TextColor="White"
+              Command = "{Binding OperatorCommand} "
+              CommandParameter = "+"/>
+
 
         <Button 
-              Grid.Row="3" 
+              Grid.Row="5" 
               Grid.Column="3" 
-              Grid.RowSpan="2"
-              Clicked="OnNumberSelection"
               BackgroundColor="BlueViolet"
               CornerRadius="0"
               FontSize="36"
               Text="="
+              Command = "{Binding CalcCommand} "
               TextColor="White"/>
 
-
-
-
-
     </Grid>
-    
-    
-    
+
+
+
 </ContentPage>
